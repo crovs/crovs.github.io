@@ -23,7 +23,7 @@ Subscriptions are managed through your Apple ID account. Go to Settings → Appl
 ## Contact Support
 
 If you couldn't find an answer to your question, please email us at:
-**your-email@example.com**
+**ahmetyada4@gmail.com**
 
 We aim to respond to all inquiries within 48 hours.
 
