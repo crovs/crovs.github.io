@@ -42,8 +42,8 @@ You can view our [Privacy Policy here](privacy-policy.md).
 
 You can download the support files to view offline:
 
-1. [Download index.html](https://github.com/crovs/crovs.github.io/blob/main/index.html) - Main support page
-2. [Download privacy-policy.md](https://github.com/crovs/crovs.github.io/blob/main/privacy-policy.md) - Privacy policy
+1. [Download index.html](https://raw.githubusercontent.com/crovs/crovs.github.io/blob/main/index.html) - Main support page
+2. [Download privacy-policy.md](https://raw.githubusercontent.com/crovs/crovs.github.io/blob/main/privacy-policy.md) - Privacy policy
 
 ## Why GitHub Pages?
 
