@@ -66,4 +66,4 @@ Changes to This Privacy Policy
 I may update this Privacy Policy from time to time. I will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
 
 Contact Me
-If you have questions or concerns about this Privacy Policy, please contact me at: [Your Email Address]
+If you have questions or concerns about this Privacy Policy, please contact me at: ahmetyada4@gmail.com
