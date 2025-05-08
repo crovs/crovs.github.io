@@ -34,7 +34,7 @@ You can view our [Privacy Policy here](privacy-policy.md).
 ## How to Use This Repository
 
 ### Getting Started
-1. Visit the [GitHub Pages version](https://crovs.github.io/Loan-Calculator---Planner-Support/) of this site for a better viewing experience
+1. Visit the [GitHub Pages version](https://crovs.github.io) of this site for a better viewing experience
 2. Navigate to the support section relevant to your issue
 3. Follow the instructions provided
 
