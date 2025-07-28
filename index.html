@@ -7,55 +7,128 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <h1>Welcome to Ahmet's Apps</h1>
-    <p>Your hub for support, privacy and information</p>
-  </header>
-  <section>
-    <h2>Our Apps</h2>
-    <div class="app-section">
-      <div class="app-image">
-        <img src="images/truth-abstract.png" alt="Truth or Dare app illustration">
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <div class="logo">Ahmet's Apps</div>
+      <div class="nav-links">
+        <a href="#apps" class="nav-link">Apps</a>
+        <a href="mailto:ahmetyada4@gmail.com" class="nav-link">Support</a>
       </div>
-      <div class="app-content">
-        <h3>Truth or Dare – Spicy Party</h3>
-        <p>Turn any gathering into a memorable party! Choose from classic, spin‑the‑wheel or unpredictable modes to challenge your friends with truths and dares.</p>
-        <ul>
+    </div>
+  </nav>
+  
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Beautiful apps.<br>Thoughtfully designed.</h1>
+      <p class="hero-subtitle">Discover our collection of carefully crafted applications that enhance your daily life.</p>
+      <a href="#apps" class="cta-button">Explore Apps</a>
+    </div>
+  </header>
+  <main id="apps" class="apps-section">
+    <div class="section-header">
+      <h2 class="section-title">Our Apps</h2>
+      <p class="section-subtitle">Designed with care. Built for everyone.</p>
+    </div>
+    
+    <article class="app-card" data-app="truth-dare">
+      <div class="app-visual">
+        <div class="app-image-container">
+          <img src="images/truth-abstract.png" alt="Truth or Dare app illustration" class="app-image">
+        </div>
+      </div>
+      <div class="app-details">
+        <h3 class="app-title">Truth or Dare</h3>
+        <p class="app-tagline">Spicy Party</p>
+        <p class="app-description">Turn any gathering into a memorable party! Choose from classic, spin‑the‑wheel or unpredictable modes to challenge your friends with truths and dares.</p>
+        <ul class="app-features">
           <li>Family‑friendly and adult content categories</li>
           <li>Spin‑the‑wheel and mystery dares</li>
           <li>Create your own categories</li>
         </ul>
-        <div class="button-group">
-          <!-- Replace # with App Store link when available -->
-          <a href="#" class="button primary">Download on the App Store</a>
-          <a href="truth_or_dare_privacy.html" class="button secondary">Privacy Policy</a>
-          <a href="mailto:ahmetyada4@gmail.com" class="button secondary">Contact Support</a>
+        <div class="app-actions">
+          <a href="#" class="app-store-button">
+            <span class="button-text">Download on the App Store</span>
+          </a>
+          <div class="secondary-links">
+            <a href="truth_or_dare_privacy.html" class="link-secondary">Privacy Policy</a>
+            <a href="mailto:ahmetyada4@gmail.com" class="link-secondary">Contact Support</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="app-section">
-      <div class="app-image">
-        <img src="images/loan-abstract.png" alt="Loan Calculator app illustration">
+    </article>
+    
+    <article class="app-card" data-app="loan-calculator">
+      <div class="app-visual">
+        <div class="app-image-container">
+          <img src="images/loan-abstract.png" alt="Loan Calculator app illustration" class="app-image">
+        </div>
       </div>
-      <div class="app-content">
-        <h3>Loan Calculator – Planner</h3>
-        <p>Calculate loans easily and plan your finances with a simple, intuitive interface. Keep track of your calculations and stay on top of your budget.</p>
-        <ul>
+      <div class="app-details">
+        <h3 class="app-title">Loan Calculator</h3>
+        <p class="app-tagline">Planner</p>
+        <p class="app-description">Calculate loans easily and plan your finances with a simple, intuitive interface. Keep track of your calculations and stay on top of your budget.</p>
+        <ul class="app-features">
           <li>Simple loan and interest calculation</li>
           <li>Subscription options via in‑app purchases</li>
           <li>All data stored locally on your device</li>
         </ul>
-        <div class="button-group">
-          <a href="#" class="button primary">Download on the App Store</a>
-          <a href="loan_calculator_privacy.html" class="button secondary">Privacy Policy</a>
-          <a href="mailto:ahmetyada4@gmail.com" class="button secondary">Contact Support</a>
+        <div class="app-actions">
+          <a href="#" class="app-store-button">
+            <span class="button-text">Download on the App Store</span>
+          </a>
+          <div class="secondary-links">
+            <a href="loan_calculator_privacy.html" class="link-secondary">Privacy Policy</a>
+            <a href="mailto:ahmetyada4@gmail.com" class="link-secondary">Contact Support</a>
+          </div>
         </div>
       </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <p class="footer-text">Created with care by Ahmet Emin Yada</p>
+        <p class="footer-copyright">© 2025 Ahmet's Apps. All rights reserved.</p>
+      </div>
+      <div class="footer-contact">
+        <a href="mailto:ahmetyada4@gmail.com" class="footer-link">ahmetyada4@gmail.com</a>
+      </div>
     </div>
-  </section>
-  <footer>
-    <p>Created with ❤️ by Ahmet Emin Yada · © 2025</p>
-    <p><a href="mailto:ahmetyada4@gmail.com">ahmetyada4@gmail.com</a></p>
   </footer>
+  
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe app cards for animation
+    document.querySelectorAll('.app-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
