@@ -150,14 +150,23 @@ transition: all var(--transition-normal);
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
   display: -webkit-flex;
-display: flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   height: 80px;
 }
 
 .logo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: var(--spacing-sm);
   font-weight: 600;
@@ -169,7 +178,11 @@ display: flex;
 }
 
 .nav-links {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: var(--spacing-xl);
 }
@@ -356,21 +369,32 @@ background: linear-gradient(135deg,
 }
 
 .hero-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   gap: var(--spacing-lg);
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: var(--spacing-3xl);
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
 .hero-cta {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-xl);
   border-radius: var(--radius-lg);
   text-decoration: none;
   font-weight: 600;
+  -webkit-transition: all var(--transition-normal);
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
@@ -384,6 +408,7 @@ background: linear-gradient(135deg,
 
 .hero-cta.primary:hover {
   background: #0056D3;
+  -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
   box-shadow: var(--shadow-xl);
 }
@@ -396,24 +421,33 @@ background: linear-gradient(135deg,
 
 .hero-cta.secondary:hover {
   background: var(--fill-secondary);
+  -webkit-transform: translateY(-1px);
   transform: translateY(-1px);
 }
 
 .cta-icon {
+  -webkit-transition: -webkit-transform var(--transition-normal);
+  transition: -webkit-transform var(--transition-normal);
   transition: transform var(--transition-normal);
+  transition: transform var(--transition-normal), -webkit-transform var(--transition-normal);
 }
 
 .hero-cta:hover .cta-icon {
+  -webkit-transform: translateX(4px);
   transform: translateX(4px);
 }
 
 .hero-stats {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   gap: var(--spacing-4xl);
   margin-top: var(--spacing-5xl);
   -webkit-animation: fadeInUp 1s ease-out 0.4s both;
-animation: fadeInUp 1s ease-out 0.4s both;
+  animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 @media (min-width: 1200px) {
@@ -526,7 +560,10 @@ animation: fadeInUp 1s ease-out 0.4s both;
 
 .features-grid {
   display: -webkit-grid;
-display: grid;
+  display: -ms-grid;
+  display: grid;
+  -webkit-grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-3xl);
   max-width: 1000px;
@@ -552,16 +589,24 @@ display: grid;
   right: 0;
   height: 4px;
   background: -webkit-linear-gradient(90deg, var(--system-blue), var(--system-purple));
-background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
+  background: -moz-linear-gradient(90deg, var(--system-blue), var(--system-purple));
+  background: -ms-linear-gradient(90deg, var(--system-blue), var(--system-purple));
+  background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
+  -webkit-transform: scaleX(0);
   transform: scaleX(0);
+  -webkit-transition: -webkit-transform var(--transition-normal);
+  transition: -webkit-transform var(--transition-normal);
   transition: transform var(--transition-normal);
+  transition: transform var(--transition-normal), -webkit-transform var(--transition-normal);
 }
 
 .feature-card:hover::before {
+  -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
 
 .feature-card:hover {
+  -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
@@ -595,15 +640,25 @@ background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
 }
 
 .apps-grid {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: var(--spacing-4xl);
 }
 
 .app-showcase {
+  display: -webkit-grid;
+  display: -ms-grid;
   display: grid;
+  -webkit-grid-template-columns: 1.2fr 1fr;
+  -ms-grid-columns: 1.2fr 1fr;
   grid-template-columns: 1.2fr 1fr;
   gap: var(--spacing-5xl);
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: var(--spacing-6xl);
   padding: var(--spacing-4xl);
@@ -634,7 +689,11 @@ background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
 }
 
 .app-header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
@@ -670,7 +729,11 @@ background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
 }
 
 .app-rating {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: var(--spacing-sm);
 }
@@ -692,7 +755,11 @@ background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
 }
 
 .app-features-list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
@@ -710,13 +777,21 @@ background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
 }
 
 .app-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: var(--spacing-lg);
 }
 
 .app-store-btn {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-xl);
@@ -725,7 +800,10 @@ background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
   border-radius: var(--radius-lg);
   text-decoration: none;
   font-weight: 600;
+  -webkit-transition: all var(--transition-normal);
   transition: all var(--transition-normal);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -758,25 +836,39 @@ background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
 }
 
 .app-visual {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .device-mockup {
   position: relative;
-  width: 300px;
-  height: 600px;
+  width: 200px;
+  height: 400px;
   background: var(--system-black);
   border-radius: var(--radius-2xl);
   padding: var(--spacing-md);
   box-shadow: var(--shadow-2xl);
-  transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+  -webkit-transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  -webkit-transition: -webkit-transform var(--transition-slow);
+  transition: -webkit-transform var(--transition-slow);
   transition: transform var(--transition-slow);
+  transition: transform var(--transition-slow), -webkit-transform var(--transition-slow);
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .app-showcase:hover .device-mockup {
-  transform: perspective(1000px) rotateY(-10deg) rotateX(2deg) scale(1.05);
+  -webkit-transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) scale(1.02);
+  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) scale(1.02);
 }
 
 .device-screen {
