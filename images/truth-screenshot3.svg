@@ -1,0 +1,21 @@
+<svg width="300" height="600" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="600" fill="url(#grad)" rx="40"/>
+  <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#FF69B4"/>
+    <stop offset="100%" stop-color="#4B0082"/>
+  </linearGradient>
+  <rect x="20" y="40" width="260" height="520" fill="#000" rx="30" opacity="0.8"/>
+  <text x="150" y="100" fill="#FFF" text-anchor="middle" font-size="24">Over 1,000 crazy questions - never get bored</text>
+  <rect x="60" y="150" width="180" height="60" fill="#FFA500" rx="10" transform="rotate(-10 150 180)"/>
+  <text x="150" y="185" fill="#000" text-anchor="middle" font-size="16">Sing your favorite song</text>
+  <rect x="80" y="220" width="180" height="60" fill="#FF0000" rx="10" transform="rotate(5 170 250)"/>
+  <text x="170" y="255" fill="#FFF" text-anchor="middle" font-size="16">Ever been thrown out of a bar?</text>
+  <rect x="40" y="290" width="180" height="60" fill="#00FF00" rx="10" transform="rotate(-5 130 320)"/>
+  <text x="130" y="325" fill="#000" text-anchor="middle" font-size="16">Explain your worst date!</text>
+  <rect x="100" y="360" width="180" height="60" fill="#FFFF00" rx="10" transform="rotate(10 190 390)"/>
+  <text x="190" y="395" fill="#000" text-anchor="middle" font-size="16">Make every night different</text>
+  <rect x="50" y="430" width="180" height="60" fill="#FF00FF" rx="10" transform="rotate(-15 140 460)"/>
+  <text x="140" y="465" fill="#FFF" text-anchor="middle" font-size="16">The last photo your gallery</text>
+  <rect x="120" y="500" width="180" height="60" fill="#00FFFF" rx="10" transform="rotate(15 210 530)"/>
+  <text x="210" y="535" fill="#000" text-anchor="middle" font-size="16">Post the last photo</text>
+</svg>
