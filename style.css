@@ -830,12 +830,21 @@ background: linear-gradient(135deg,
 .feature-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
   color: var(--label-secondary);
+  padding: var(--spacing-sm) 0;
 }
 
 .feature-icon {
   font-size: 1.25rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.feature-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .app-actions {
