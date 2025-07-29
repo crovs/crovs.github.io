@@ -319,6 +319,21 @@ p {
   right: 0;
   bottom: 0;
   z-index: -1;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0.4;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .hero-background::after {
@@ -328,69 +343,32 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
-  animation: breathe 8s ease-in-out infinite;
+  background: linear-gradient(135deg, 
+    rgba(0, 122, 255, 0.15) 0%, 
+    rgba(88, 86, 214, 0.15) 25%, 
+    rgba(255, 45, 146, 0.15) 50%, 
+    rgba(255, 149, 0, 0.15) 75%, 
+    rgba(52, 199, 89, 0.15) 100%);
   pointer-events: none;
 }
 
-@keyframes breathe {
-  0%, 100% { 
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.6;
-    transform: scale(1.02);
-  }
-}
-
+/* Fallback gradient for when video is not available */
 .hero-gradient {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: -webkit-linear-gradient(135deg, 
-    rgba(0, 122, 255, 0.25) 0%, 
-    rgba(88, 86, 214, 0.25) 25%, 
-    rgba(255, 45, 146, 0.25) 50%, 
-    rgba(255, 149, 0, 0.25) 75%, 
-    rgba(52, 199, 89, 0.25) 100%);
   background: linear-gradient(135deg, 
-    rgba(0, 122, 255, 0.25) 0%, 
-    rgba(88, 86, 214, 0.25) 25%, 
-    rgba(255, 45, 146, 0.25) 50%, 
-    rgba(255, 149, 0, 0.25) 75%, 
-    rgba(52, 199, 89, 0.25) 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 20s ease-in-out infinite, gradientMove 30s linear infinite;
+    rgba(0, 122, 255, 0.2) 0%, 
+    rgba(88, 86, 214, 0.2) 25%, 
+    rgba(255, 45, 146, 0.2) 50%, 
+    rgba(255, 149, 0, 0.2) 75%, 
+    rgba(52, 199, 89, 0.2) 100%);
+  opacity: 0.8;
 }
 
-@keyframes gradientShift {
-  0%, 100% { 
-    opacity: 0.8;
-    filter: hue-rotate(0deg);
-  }
-  25% { 
-    opacity: 1;
-    filter: hue-rotate(15deg);
-  }
-  50% { 
-    opacity: 0.9;
-    filter: hue-rotate(30deg);
-  }
-  75% { 
-    opacity: 1;
-    filter: hue-rotate(15deg);
-  }
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+/* Simplified particles for better performance */
 .hero-particles {
   position: absolute;
   top: 0;
@@ -398,76 +376,13 @@ p {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 80%, rgba(0, 122, 255, 0.6) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 45, 146, 0.5) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(88, 86, 214, 0.5) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(255, 149, 0, 0.45) 0%, transparent 50%),
-    radial-gradient(circle at 10% 30%, rgba(52, 199, 89, 0.4) 0%, transparent 50%);
-  animation: float 25s ease-in-out infinite, particleShift 35s linear infinite;
+    radial-gradient(circle at 20% 80%, rgba(0, 122, 255, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255, 45, 146, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 40% 40%, rgba(88, 86, 214, 0.25) 0%, transparent 40%);
+  opacity: 0.6;
 }
 
-.hero-particles::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 60% 10%, rgba(88, 86, 214, 0.2) 0%, transparent 40%),
-    radial-gradient(circle at 30% 90%, rgba(255, 45, 146, 0.2) 0%, transparent 40%),
-    radial-gradient(circle at 90% 50%, rgba(0, 122, 255, 0.2) 0%, transparent 40%);
-  animation: floatReverse 40s ease-in-out infinite, particleShiftReverse 45s linear infinite;
-}
-
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg) scale(1);
-    opacity: 0.8;
-  }
-  25% { 
-    transform: translateY(-15px) rotate(1deg) scale(1.05);
-    opacity: 1;
-  }
-  50% { 
-    transform: translateY(-8px) rotate(-0.5deg) scale(0.95);
-    opacity: 0.9;
-  }
-  75% { 
-    transform: translateY(10px) rotate(0.8deg) scale(1.02);
-    opacity: 1;
-  }
-}
-
-@keyframes floatReverse {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg) scale(1);
-    opacity: 0.6;
-  }
-  33% { 
-    transform: translateY(12px) rotate(-0.8deg) scale(0.98);
-    opacity: 0.8;
-  }
-  66% { 
-    transform: translateY(-6px) rotate(0.6deg) scale(1.03);
-    opacity: 0.7;
-  }
-}
-
-@keyframes particleShift {
-  0% { background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 100% 0%; }
-  25% { background-position: 25% 25%, 75% 75%, 75% 25%, 25% 75%, 75% 25%; }
-  50% { background-position: 50% 50%, 50% 50%, 100% 0%, 50% 50%, 50% 50%; }
-  75% { background-position: 75% 25%, 25% 75%, 25% 75%, 75% 25%, 25% 75%; }
-  100% { background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 100% 0%; }
-}
-
-@keyframes particleShiftReverse {
-  0% { background-position: 100% 100%, 0% 0%, 50% 50%; }
-  33% { background-position: 66% 33%, 33% 66%, 33% 66%; }
-  66% { background-position: 33% 66%, 66% 33%, 66% 33%; }
-  100% { background-position: 100% 100%, 0% 0%, 50% 50%; }
-}
+/* Removed complex animations for better performance */
 
 .hero-content {
   text-align: center;
@@ -1037,9 +952,9 @@ p {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1048,14 +963,46 @@ p {
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-md) var(--spacing-sm);
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--system-gray4) transparent;
 }
 
 .app-screenshots::-webkit-scrollbar {
-  display: none;
+  height: 8px;
+}
+
+.app-screenshots::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.app-screenshots::-webkit-scrollbar-thumb {
+  background: var(--system-gray4);
+  border-radius: 4px;
+  transition: background var(--transition-fast);
+}
+
+.app-screenshots::-webkit-scrollbar-thumb:hover {
+  background: var(--system-gray3);
+}
+
+/* Desktop scrolling improvements */
+@media (min-width: 1024px) {
+  .app-screenshots {
+    justify-content: flex-start;
+    padding: var(--spacing-lg) var(--spacing-md);
+    gap: var(--spacing-lg);
+  }
+  
+  .app-screenshots::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  .device-mockup {
+    min-width: 200px;
+  }
 }
 
 .device-mockup {
@@ -1465,27 +1412,14 @@ p {
   }
 }
 
-/* Mobile animation support */
-@media (max-width: 768px) {
-  .hero-gradient {
-    animation: gradientShift 15s ease-in-out infinite, gradientMove 20s linear infinite;
-  }
-  
-  .hero-particles {
-    animation: float 18s ease-in-out infinite, particleShift 25s linear infinite;
-  }
-  
-  .hero-particles::before {
-    animation: floatReverse 30s ease-in-out infinite, particleShiftReverse 35s linear infinite;
-  }
-}
-
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .hero-gradient,
-  .hero-particles,
-  .hero-background::after {
-    animation: none !important;
+  .hero-video {
+    opacity: 0.2;
+  }
+  
+  .hero-video * {
+    animation-play-state: paused !important;
   }
   
   * {
