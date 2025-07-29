@@ -685,7 +685,7 @@ background: linear-gradient(135deg,
 }
 
 .app-content {
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .app-header {
@@ -1112,10 +1112,25 @@ background: linear-gradient(135deg,
   }
   
   .app-showcase {
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: var(--spacing-6xl);
     padding: var(--spacing-5xl);
-    max-width: 1200px;
+    max-width: 1300px;
+  }
+  
+  .app-content {
+    max-width: 700px;
+  }
+  
+  .app-description {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .app-features-list {
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
   }
 }
 
@@ -1145,9 +1160,14 @@ background: linear-gradient(135deg,
   }
   
   .app-showcase {
-    max-width: 1400px;
+    max-width: 1500px;
     padding: var(--spacing-6xl);
     gap: var(--spacing-7xl);
+    grid-template-columns: 1.5fr 1fr;
+  }
+  
+  .app-content {
+    max-width: 800px;
   }
   
   .app-image {
