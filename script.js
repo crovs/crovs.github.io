@@ -117,6 +117,103 @@
         }
     };
 
+    // Background effects management
+    const backgroundManager = {
+        vantaEffect: null,
+        currentMode: 'css', // 'css' or 'vanta'
+        
+        init() {
+            this.setupBackgroundToggle();
+            this.loadSavedBackground();
+        },
+        
+        setupBackgroundToggle() {
+            const bgToggle = document.querySelector('[data-bg-toggle]');
+            const bgIcon = document.querySelector('.bg-icon');
+            
+            if (bgToggle) {
+                bgToggle.addEventListener('click', () => {
+                    this.toggleBackground();
+                });
+            }
+        },
+        
+        toggleBackground() {
+            if (this.currentMode === 'css') {
+                this.switchToVanta();
+            } else {
+                this.switchToCSS();
+            }
+            
+            // Save preference
+            localStorage.setItem('backgroundMode', this.currentMode);
+        },
+        
+        switchToCSS() {
+            const cssGradient = document.getElementById('css-gradient');
+            const vantaBg = document.getElementById('vanta-bg');
+            const bgIcon = document.querySelector('.bg-icon');
+            
+            // Destroy Vanta effect
+            if (this.vantaEffect) {
+                this.vantaEffect.destroy();
+                this.vantaEffect = null;
+            }
+            
+            // Show CSS gradient, hide Vanta
+            if (cssGradient) cssGradient.style.display = 'block';
+            if (vantaBg) vantaBg.style.display = 'none';
+            if (bgIcon) bgIcon.textContent = '🌊';
+            
+            this.currentMode = 'css';
+        },
+        
+        switchToVanta() {
+            const cssGradient = document.getElementById('css-gradient');
+            const vantaBg = document.getElementById('vanta-bg');
+            const bgIcon = document.querySelector('.bg-icon');
+            
+            // Hide CSS gradient, show Vanta
+            if (cssGradient) cssGradient.style.display = 'none';
+            if (vantaBg) vantaBg.style.display = 'block';
+            if (bgIcon) bgIcon.textContent = '🎨';
+            
+            // Initialize Vanta effect
+            if (window.VANTA && window.VANTA.WAVES && !this.vantaEffect) {
+                this.vantaEffect = window.VANTA.WAVES({
+                    el: '#vanta-bg',
+                    color: 0x007AFF,
+                    shininess: 50,
+                    waveHeight: 20,
+                    waveSpeed: 1.0,
+                    zoom: 1.0,
+                    backgroundAlpha: 0.3
+                });
+            }
+            
+            this.currentMode = 'vanta';
+        },
+        
+        loadSavedBackground() {
+            const savedMode = localStorage.getItem('backgroundMode');
+            
+            // Default to CSS gradient
+            if (savedMode === 'vanta') {
+                // Wait for Vanta to load
+                const checkVanta = () => {
+                    if (window.VANTA && window.VANTA.WAVES) {
+                        this.switchToVanta();
+                    } else {
+                        setTimeout(checkVanta, 100);
+                    }
+                };
+                checkVanta();
+            } else {
+                this.switchToCSS();
+            }
+        }
+    };
+
     // Navigation functionality
     const navigation = {
         init() {
@@ -578,6 +675,7 @@
     const initializeApp = () => {
         // Initialize all modules
         themeManager.init();
+        backgroundManager.init();
         navigation.init();
         parallax.init();
         animations.init();

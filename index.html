@@ -18,6 +18,10 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23007AFF'/><text x='50' y='55' text-anchor='middle' font-size='40' fill='white' font-family='-apple-system'>A</text></svg>">
+  
+  <!-- Vanta.js Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://unpkg.com/vanta/dist/vanta.waves.min.js"></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -35,6 +39,9 @@
         <button class="theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
           <span class="theme-icon">🌙</span>
         </button>
+        <button class="bg-toggle" aria-label="Toggle background effect" data-bg-toggle>
+          <span class="bg-icon">🌊</span>
+        </button>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation" data-nav-toggle>
         <span></span>
@@ -47,8 +54,8 @@
   <!-- Hero Section -->
   <section id="hero" class="hero" data-section>
     <div class="hero-background">
-      <img class="hero-video" src="images/hero-background.svg" alt="Animated background" loading="eager">
-      <div class="hero-gradient"></div>
+      <div class="hero-animated-gradient" id="css-gradient"></div>
+      <div class="hero-vanta" id="vanta-bg" style="display: none;"></div>
       <div class="hero-particles" data-particles></div>
     </div>
     

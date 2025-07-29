@@ -276,6 +276,32 @@ p {
   transform: scale(1.05);
 }
 
+.bg-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--spacing-sm);
+}
+
+.bg-toggle:hover {
+  background: var(--fill-primary);
+}
+
+.bg-icon {
+  font-size: 1.2rem;
+  transition: transform var(--transition-fast);
+}
+
+.bg-toggle:hover .bg-icon {
+  transform: scale(1.05);
+}
+
 /* Dark mode class for manual toggle */
 .dark-mode {
   --label-primary: rgba(255, 255, 255, 0.85);
@@ -322,18 +348,35 @@ p {
   overflow: hidden;
 }
 
-.hero-video {
+.hero-animated-gradient {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translateX(-50%) translateY(-50%);
-  opacity: 0.4;
-  object-fit: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-45deg, 
+    #007AFF, 
+    #5856D6, 
+    #FF2D92, 
+    #FF9500, 
+    #34C759, 
+    #007AFF);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  opacity: 0.3;
   pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-background::after {
@@ -344,28 +387,23 @@ p {
   right: 0;
   bottom: 0;
   background: linear-gradient(135deg, 
-    rgba(0, 122, 255, 0.15) 0%, 
-    rgba(88, 86, 214, 0.15) 25%, 
-    rgba(255, 45, 146, 0.15) 50%, 
-    rgba(255, 149, 0, 0.15) 75%, 
-    rgba(52, 199, 89, 0.15) 100%);
+    rgba(0, 122, 255, 0.1) 0%, 
+    rgba(88, 86, 214, 0.1) 25%, 
+    rgba(255, 45, 146, 0.1) 50%, 
+    rgba(255, 149, 0, 0.1) 75%, 
+    rgba(52, 199, 89, 0.1) 100%);
   pointer-events: none;
 }
 
-/* Fallback gradient for when video is not available */
-.hero-gradient {
+.hero-vanta {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(0, 122, 255, 0.2) 0%, 
-    rgba(88, 86, 214, 0.2) 25%, 
-    rgba(255, 45, 146, 0.2) 50%, 
-    rgba(255, 149, 0, 0.2) 75%, 
-    rgba(52, 199, 89, 0.2) 100%);
-  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* Simplified particles for better performance */
@@ -1333,12 +1371,16 @@ p {
     gap: var(--spacing-md);
   }
   
-  .nav-link:not(.theme-toggle) {
+  .nav-link:not(.theme-toggle):not(.bg-toggle) {
     display: none;
   }
   
   .theme-toggle {
     margin-left: 0;
+  }
+  
+  .bg-toggle {
+    margin-left: var(--spacing-sm);
   }
   
   .nav-toggle {
@@ -1414,12 +1456,13 @@ p {
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .hero-video {
+  .hero-animated-gradient {
+    animation: none;
     opacity: 0.2;
   }
   
-  .hero-video * {
-    animation-play-state: paused !important;
+  .hero-vanta {
+    display: none !important;
   }
   
   * {
