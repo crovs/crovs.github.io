@@ -358,10 +358,10 @@
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     
-                    const rotateX = (y - centerY) / 30;
-                    const rotateY = (centerX - x) / 30;
+                    const rotateX = (y - centerY) / 60;
+                    const rotateY = (centerX - x) / 60;
                     
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(2px)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(1px)`;
                 });
                 
                 card.addEventListener('mouseleave', () => {
@@ -379,10 +379,10 @@
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     
-                    const rotateX = (y - centerY) / 20;
-                    const rotateY = (centerX - x) / 20;
+                    const rotateX = (y - centerY) / 40;
+                    const rotateY = (centerX - x) / 40;
                     
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(2px)`;
                 });
             });
         }

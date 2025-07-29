@@ -853,7 +853,7 @@ p {
 
 .app-showcase:hover {
   background: var(--background-secondary);
-  transform: translateY(-1px);
+  transform: translateY(-0.5px);
 }
 
 .app-content {
@@ -990,7 +990,7 @@ p {
 
 .app-store-btn:hover {
   background: #1a1a1a;
-  transform: translateY(-0.5px);
+  transform: translateY(-0.25px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -1079,8 +1079,8 @@ p {
 }
 
 .app-showcase:hover .device-mockup {
-  -webkit-transform: perspective(1000px) rotateY(-0.3deg) rotateX(0.15deg) scale(1.005);
-  transform: perspective(1000px) rotateY(-0.3deg) rotateX(0.15deg) scale(1.005);
+  -webkit-transform: perspective(1000px) rotateY(-0.2deg) rotateX(0.1deg) scale(1.002);
+  transform: perspective(1000px) rotateY(-0.2deg) rotateX(0.1deg) scale(1.002);
 }
 
 .device-screen {
