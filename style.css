@@ -885,8 +885,8 @@ background: linear-gradient(135deg,
   border-radius: var(--radius-2xl);
   padding: var(--spacing-sm);
   box-shadow: var(--shadow-2xl);
-  -webkit-transform: perspective(1000px) rotateY(-3deg) rotateX(1deg);
-  transform: perspective(1000px) rotateY(-3deg) rotateX(1deg);
+  -webkit-transform: perspective(1000px) rotateY(-1deg) rotateX(0.5deg);
+  transform: perspective(1000px) rotateY(-1deg) rotateX(0.5deg);
   -webkit-transition: -webkit-transform var(--transition-slow);
   transition: -webkit-transform var(--transition-slow);
   transition: transform var(--transition-slow);
@@ -898,8 +898,8 @@ background: linear-gradient(135deg,
 }
 
 .app-showcase:hover .device-mockup {
-  -webkit-transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) scale(1.02);
-  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) scale(1.02);
+  -webkit-transform: perspective(1000px) rotateY(-0.5deg) rotateX(0.25deg) scale(1.01);
+  transform: perspective(1000px) rotateY(-0.5deg) rotateX(0.25deg) scale(1.01);
 }
 
 .device-screen {
