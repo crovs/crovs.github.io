@@ -1051,11 +1051,12 @@ background: linear-gradient(135deg,
 }
 
 .developer-card {
-  background: var(--system-white);
+  background: var(--background-primary);
   padding: var(--spacing-2xl);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
   text-align: center;
+  border: 1px solid var(--border-primary);
 }
 
 .card-header {
