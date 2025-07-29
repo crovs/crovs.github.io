@@ -233,6 +233,27 @@ p {
   width: 100%;
 }
 
+.nav-link.x-link {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+}
+
+.nav-link.x-link:hover {
+  background: var(--fill-secondary);
+  transform: translateY(-1px);
+}
+
+.nav-link.x-link svg {
+  transition: transform var(--transition-normal);
+}
+
+.nav-link.x-link:hover svg {
+  transform: scale(1.1);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
