@@ -351,19 +351,19 @@ p {
   right: 0;
   bottom: 0;
   background: -webkit-linear-gradient(135deg, 
-    rgba(0, 122, 255, 0.15) 0%, 
-    rgba(88, 86, 214, 0.15) 25%, 
-    rgba(255, 45, 146, 0.15) 50%, 
-    rgba(255, 149, 0, 0.15) 75%, 
-    rgba(52, 199, 89, 0.15) 100%);
+    rgba(0, 122, 255, 0.25) 0%, 
+    rgba(88, 86, 214, 0.25) 25%, 
+    rgba(255, 45, 146, 0.25) 50%, 
+    rgba(255, 149, 0, 0.25) 75%, 
+    rgba(52, 199, 89, 0.25) 100%);
   background: linear-gradient(135deg, 
-    rgba(0, 122, 255, 0.15) 0%, 
-    rgba(88, 86, 214, 0.15) 25%, 
-    rgba(255, 45, 146, 0.15) 50%, 
-    rgba(255, 149, 0, 0.15) 75%, 
-    rgba(52, 199, 89, 0.15) 100%);
+    rgba(0, 122, 255, 0.25) 0%, 
+    rgba(88, 86, 214, 0.25) 25%, 
+    rgba(255, 45, 146, 0.25) 50%, 
+    rgba(255, 149, 0, 0.25) 75%, 
+    rgba(52, 199, 89, 0.25) 100%);
   background-size: 400% 400%;
-  animation: gradientShift 25s ease-in-out infinite, gradientMove 40s linear infinite;
+  animation: gradientShift 20s ease-in-out infinite, gradientMove 30s linear infinite;
 }
 
 @keyframes gradientShift {
@@ -1422,8 +1422,6 @@ p {
   .device-mockup {
     width: clamp(120px, 25vw, 180px);
     height: clamp(240px, 50vw, 360px);
-    -webkit-transform: none;
-    transform: none;
     margin: 0 var(--spacing-xs);
   }
   
@@ -1469,9 +1467,13 @@ p {
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
+  .hero-gradient,
+  .hero-particles,
+  .hero-background::after {
+    animation: none !important;
+  }
+  
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
