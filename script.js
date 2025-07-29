@@ -184,7 +184,7 @@
                 const isDesktop = window.innerWidth >= 1024;
                 this.vantaEffect = window.VANTA.WAVES({
                     el: '#vanta-bg',
-                    color: 0x007AFF,
+                    color: 0x8B5CF6,
                     shininess: isDesktop ? 60 : 50,
                     waveHeight: isDesktop ? 25 : 20,
                     waveSpeed: isDesktop ? 1.2 : 1.0,
