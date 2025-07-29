@@ -141,14 +141,16 @@ p {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all var(--transition-normal);
+  -webkit-transition: all var(--transition-normal);
+transition: all var(--transition-normal);
 }
 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
-  display: flex;
+  display: -webkit-flex;
+display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
@@ -243,7 +245,13 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, 
+  background: -webkit-linear-gradient(135deg, 
+    rgba(0, 122, 255, 0.1) 0%, 
+    rgba(88, 86, 214, 0.1) 25%, 
+    rgba(255, 45, 146, 0.1) 50%, 
+    rgba(255, 149, 0, 0.1) 75%, 
+    rgba(52, 199, 89, 0.1) 100%);
+background: linear-gradient(135deg, 
     rgba(0, 122, 255, 0.1) 0%, 
     rgba(88, 86, 214, 0.1) 25%, 
     rgba(255, 45, 146, 0.1) 50%, 
@@ -404,7 +412,8 @@ p {
   justify-content: center;
   gap: var(--spacing-4xl);
   margin-top: var(--spacing-5xl);
-  animation: fadeInUp 1s ease-out 0.4s both;
+  -webkit-animation: fadeInUp 1s ease-out 0.4s both;
+animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 @media (min-width: 1200px) {
@@ -516,7 +525,8 @@ p {
 }
 
 .features-grid {
-  display: grid;
+  display: -webkit-grid;
+display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-3xl);
   max-width: 1000px;
@@ -541,7 +551,8 @@ p {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
+  background: -webkit-linear-gradient(90deg, var(--system-blue), var(--system-purple));
+background: linear-gradient(90deg, var(--system-blue), var(--system-purple));
   transform: scaleX(0);
   transition: transform var(--transition-normal);
 }
