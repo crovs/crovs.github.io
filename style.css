@@ -995,6 +995,37 @@ p {
   }
 }
 
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+    padding: 0 var(--spacing-5xl);
+  }
+  
+  .hero-content {
+    max-width: 1200px;
+  }
+  
+  .features-grid {
+    max-width: 1400px;
+    gap: var(--spacing-5xl);
+  }
+  
+  .app-showcase {
+    max-width: 1400px;
+    padding: var(--spacing-6xl);
+    gap: var(--spacing-7xl);
+  }
+  
+  .app-image {
+    max-width: 600px;
+  }
+  
+  .hero-stats {
+    gap: var(--spacing-7xl);
+    margin-top: var(--spacing-7xl);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .app-showcase {
