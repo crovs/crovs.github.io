@@ -489,6 +489,12 @@ p {
   animation: pulse 2s ease-in-out infinite;
 }
 
+/* Wave background mode - purple theme */
+body[data-bg-mode="vanta"] .hero-badge {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8B5CF6;
+}
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.02); }
@@ -574,6 +580,14 @@ p {
   box-shadow: var(--shadow-xl);
 }
 
+body[data-bg-mode="vanta"] .hero-cta.primary {
+  background: #8B5CF6;
+}
+
+body[data-bg-mode="vanta"] .hero-cta.primary:hover {
+  background: #7C3AED;
+}
+
 .hero-cta.secondary {
   background: var(--fill-primary);
   color: var(--label-primary);
@@ -628,6 +642,10 @@ p {
   font-weight: 700;
   color: var(--system-blue);
   margin-bottom: var(--spacing-sm);
+}
+
+body[data-bg-mode="vanta"] .stat-number {
+  color: #8B5CF6;
 }
 
 .stat-label {

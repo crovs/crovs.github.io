@@ -216,6 +216,9 @@
             if (vantaBg) vantaBg.style.display = 'none';
             if (bgIcon) bgIcon.textContent = '🌊';
             
+            // Update body attribute for CSS styling
+            document.body.setAttribute('data-bg-mode', 'css');
+            
             this.currentMode = 'css';
         },
         
@@ -244,6 +247,9 @@
                     scaleMobile: 1.0
                 });
             }
+            
+            // Update body attribute for CSS styling
+            document.body.setAttribute('data-bg-mode', 'vanta');
             
             this.currentMode = 'vanta';
         },
