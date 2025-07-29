@@ -371,12 +371,27 @@ p {
   0% {
     background-position: 0% 50%;
   }
-  50% {
+  25% {
     background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
   }
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* Hardware acceleration for better performance */
+.hero-animated-gradient,
+.hero-vanta,
+.hero-particles {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .hero-background::after {
@@ -1268,6 +1283,22 @@ p {
     max-width: 1000px;
   }
   
+  /* Enhanced desktop animations */
+  .hero-animated-gradient {
+    background-size: 600% 600%;
+    animation-duration: 20s;
+  }
+  
+  .hero-particles {
+    opacity: 0.8;
+    background-image: 
+      radial-gradient(circle at 15% 85%, rgba(0, 122, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 85% 15%, rgba(255, 45, 146, 0.35) 0%, transparent 50%),
+      radial-gradient(circle at 45% 45%, rgba(88, 86, 214, 0.35) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(255, 149, 0, 0.25) 0%, transparent 40%),
+      radial-gradient(circle at 25% 25%, rgba(52, 199, 89, 0.25) 0%, transparent 40%);
+  }
+  
   .features-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-4xl);
@@ -1308,6 +1339,22 @@ p {
   
   .section-header {
     max-width: 700px;
+  }
+  
+  /* Enhanced desktop gradient animation */
+  .hero-animated-gradient {
+    background-size: 800% 800%;
+    animation-duration: 25s;
+  }
+  
+  /* Improved desktop hover effects */
+  .hero-cta:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-2xl);
   }
 }
 

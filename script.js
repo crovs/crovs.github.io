@@ -125,6 +125,7 @@
         init() {
             this.setupBackgroundToggle();
             this.loadSavedBackground();
+            this.setupResizeHandler();
         },
         
         setupBackgroundToggle() {
@@ -178,16 +179,19 @@
             if (vantaBg) vantaBg.style.display = 'block';
             if (bgIcon) bgIcon.textContent = '🎨';
             
-            // Initialize Vanta effect
+            // Initialize Vanta effect with desktop optimizations
             if (window.VANTA && window.VANTA.WAVES && !this.vantaEffect) {
+                const isDesktop = window.innerWidth >= 1024;
                 this.vantaEffect = window.VANTA.WAVES({
                     el: '#vanta-bg',
                     color: 0x007AFF,
-                    shininess: 50,
-                    waveHeight: 20,
-                    waveSpeed: 1.0,
-                    zoom: 1.0,
-                    backgroundAlpha: 0.3
+                    shininess: isDesktop ? 60 : 50,
+                    waveHeight: isDesktop ? 25 : 20,
+                    waveSpeed: isDesktop ? 1.2 : 1.0,
+                    zoom: isDesktop ? 1.1 : 1.0,
+                    backgroundAlpha: 0.3,
+                    scale: isDesktop ? 1.2 : 1.0,
+                    scaleMobile: 1.0
                 });
             }
             
@@ -211,6 +215,23 @@
             } else {
                 this.switchToCSS();
             }
+        },
+        
+        setupResizeHandler() {
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // Refresh Vanta effect on resize if active
+                    if (this.currentMode === 'vanta' && this.vantaEffect) {
+                        this.vantaEffect.destroy();
+                        this.vantaEffect = null;
+                        setTimeout(() => {
+                            this.switchToVanta();
+                        }, 100);
+                    }
+                }, 250);
+            });
         }
     };
 
