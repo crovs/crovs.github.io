@@ -154,7 +154,7 @@
                 const scrolled = window.pageYOffset;
                 
                 parallaxElements.forEach(element => {
-                    const speed = parseFloat(element.dataset.parallax) || 0.5;
+                    const speed = parseFloat(element.dataset.parallax) || 0.3;
                     const yPos = -(scrolled * speed);
                     element.style.transform = `translateY(${yPos}px)`;
                 });
@@ -197,8 +197,8 @@
             
             const observerOptions = {
                 root: null,
-                rootMargin: '0px 0px -50px 0px',
-                threshold: 0.1
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0.05
             };
 
             const animationObserver = new IntersectionObserver((entries) => {
@@ -275,10 +275,10 @@
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     
-                    const rotateX = (y - centerY) / 10;
-                    const rotateY = (centerX - x) / 10;
+                    const rotateX = (y - centerY) / 15;
+                    const rotateY = (centerX - x) / 15;
                     
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
                 });
                 
                 card.addEventListener('mouseleave', () => {
