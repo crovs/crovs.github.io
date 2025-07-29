@@ -2,6 +2,28 @@
 (function() {
     'use strict';
 
+    // Safari compatibility checks
+    const safariCompat = {
+        supportsIntersectionObserver: () => {
+            return 'IntersectionObserver' in window;
+        },
+        
+        supportsCustomProperties: () => {
+            return window.CSS && window.CSS.supports && window.CSS.supports('color', 'var(--test)');
+        },
+        
+        supportsLocalStorage: () => {
+            try {
+                const test = 'test';
+                localStorage.setItem(test, test);
+                localStorage.removeItem(test);
+                return true;
+            } catch(e) {
+                return false;
+            }
+        }
+    };
+
     // Utility functions
     const utils = {
         throttle: (func, limit) => {
@@ -30,7 +52,7 @@
         isMobile: () => window.innerWidth <= 768,
 
         prefersReducedMotion: () => {
-            return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         }
     };
 
@@ -57,24 +79,30 @@
             const themeIcon = document.querySelector('.theme-icon');
             const isDark = body.classList.contains('dark-mode');
             
-            // Record the time of manual theme change
-            localStorage.setItem('lastManualThemeChange', Date.now().toString());
+            // Record the time of manual theme change (Safari compatible)
+            if (safariCompat.supportsLocalStorage()) {
+                localStorage.setItem('lastManualThemeChange', Date.now().toString());
+            }
             
             if (isDark) {
                 body.classList.remove('dark-mode');
                 if (themeIcon) themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
+                if (safariCompat.supportsLocalStorage()) {
+                    localStorage.setItem('theme', 'light');
+                }
             } else {
                 body.classList.add('dark-mode');
                 if (themeIcon) themeIcon.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
+                if (safariCompat.supportsLocalStorage()) {
+                    localStorage.setItem('theme', 'dark');
+                }
             }
         },
 
         loadSavedTheme() {
-            const savedTheme = localStorage.getItem('theme');
+            const savedTheme = safariCompat.supportsLocalStorage() ? localStorage.getItem('theme') : null;
             const themeIcon = document.querySelector('.theme-icon');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             
             // If no saved preference, use system preference
             const shouldUseDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
@@ -83,22 +111,34 @@
                 document.body.classList.add('dark-mode');
                 if (themeIcon) themeIcon.textContent = '☀️';
                 // Save the initial system preference if no saved theme exists
-                if (!savedTheme) {
+                if (!savedTheme && safariCompat.supportsLocalStorage()) {
                     localStorage.setItem('theme', 'dark');
                 }
             } else {
                 document.body.classList.remove('dark-mode');
                 if (themeIcon) themeIcon.textContent = '🌙';
                 // Save the initial system preference if no saved theme exists
-                if (!savedTheme) {
+                if (!savedTheme && safariCompat.supportsLocalStorage()) {
                     localStorage.setItem('theme', 'light');
                 }
             }
             
-            // Listen for system theme changes
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            // Listen for system theme changes (Safari compatible)
+            const mediaQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // Use addEventListener if supported, otherwise use deprecated addListener for older Safari
+            const addMediaListener = (mq, handler) => {
+                if (mq && typeof mq.addEventListener === 'function') {
+                    mq.addEventListener('change', handler);
+                } else if (mq && typeof mq.addListener === 'function') {
+                    // Fallback for older browsers (Safari < 14)
+                    mq.addListener(handler);
+                }
+            };
+            
+            const handleThemeChange = (e) => {
                 // Only auto-switch if user hasn't manually set a preference recently
-                const lastManualChange = localStorage.getItem('lastManualThemeChange');
+                const lastManualChange = safariCompat.supportsLocalStorage() ? localStorage.getItem('lastManualThemeChange') : null;
                 const now = Date.now();
                 const oneHour = 60 * 60 * 1000;
                 
@@ -106,14 +146,22 @@
                     if (e.matches) {
                         document.body.classList.add('dark-mode');
                         if (themeIcon) themeIcon.textContent = '☀️';
-                        localStorage.setItem('theme', 'dark');
+                        if (safariCompat.supportsLocalStorage()) {
+                            localStorage.setItem('theme', 'dark');
+                        }
                     } else {
                         document.body.classList.remove('dark-mode');
                         if (themeIcon) themeIcon.textContent = '🌙';
-                        localStorage.setItem('theme', 'light');
+                        if (safariCompat.supportsLocalStorage()) {
+                            localStorage.setItem('theme', 'light');
+                        }
                     }
                 }
-            });
+            };
+            
+            if (mediaQuery) {
+                addMediaListener(mediaQuery, handleThemeChange);
+            }
         }
     };
 
@@ -146,8 +194,10 @@
                 this.switchToCSS();
             }
             
-            // Save preference
-            localStorage.setItem('backgroundMode', this.currentMode);
+            // Save preference (Safari compatible)
+            if (safariCompat.supportsLocalStorage()) {
+                localStorage.setItem('backgroundMode', this.currentMode);
+            }
         },
         
         switchToCSS() {
@@ -199,7 +249,7 @@
         },
         
         loadSavedBackground() {
-            const savedMode = localStorage.getItem('backgroundMode');
+            const savedMode = safariCompat.supportsLocalStorage() ? localStorage.getItem('backgroundMode') : null;
             
             // Default to CSS gradient
             if (savedMode === 'vanta') {
@@ -264,17 +314,49 @@
                 });
             });
 
-            // Active navigation highlighting
-            const observerOptions = {
-                root: null,
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
+            // Active navigation highlighting (Safari compatible)
+            if (safariCompat.supportsIntersectionObserver()) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -70% 0px',
+                    threshold: 0
+                };
 
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            const activeLink = document.querySelector(`[data-nav-link][href="#${id}"]`);
+                            
+                            navLinks.forEach(link => link.classList.remove('active'));
+                            if (activeLink) {
+                                activeLink.classList.add('active');
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => {
+                    sectionObserver.observe(section);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver (older Safari)
+                const handleScroll = utils.throttle(() => {
+                    const scrollPosition = window.scrollY + 100; // Adjust for nav height
+                    
+                    // Find the section that is currently in view
+                    let currentSection = null;
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+                        
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                            currentSection = section;
+                        }
+                    });
+                    
+                    if (currentSection) {
+                        const id = currentSection.getAttribute('id');
                         const activeLink = document.querySelector(`[data-nav-link][href="#${id}"]`);
                         
                         navLinks.forEach(link => link.classList.remove('active'));
@@ -282,12 +364,12 @@
                             activeLink.classList.add('active');
                         }
                     }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                sectionObserver.observe(section);
-            });
+                }, 100);
+                
+                window.addEventListener('scroll', handleScroll);
+                // Initial call to set active link on page load
+                handleScroll();
+            }
         },
 
         setupMobileNav() {
@@ -396,28 +478,52 @@
 
             const animatedElements = document.querySelectorAll('[data-section], [data-animate]');
             
-            const observerOptions = {
-                root: null,
-                rootMargin: '-20% 0px -20% 0px',
-                threshold: 0.05
-            };
+            if (safariCompat.supportsIntersectionObserver()) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -20% 0px',
+                    threshold: 0.05
+                };
 
-            const animationObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        
-                        // Special handling for counters
-                        if (entry.target.hasAttribute('data-counter')) {
-                            this.animateCounter(entry.target);
+                const animationObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // Special handling for counters
+                            if (entry.target.hasAttribute('data-counter')) {
+                                this.animateCounter(entry.target);
+                            }
                         }
-                    }
-                });
-            }, observerOptions);
+                    });
+                }, observerOptions);
 
-            animatedElements.forEach(element => {
-                animationObserver.observe(element);
-            });
+                animatedElements.forEach(element => {
+                    animationObserver.observe(element);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver (older Safari)
+                const handleScroll = utils.throttle(() => {
+                    const scrollPosition = window.scrollY + window.innerHeight * 0.8;
+                    
+                    animatedElements.forEach(element => {
+                        const elementTop = element.offsetTop;
+                        
+                        if (scrollPosition >= elementTop && !element.classList.contains('visible')) {
+                            element.classList.add('visible');
+                            
+                            // Special handling for counters
+                            if (element.hasAttribute('data-counter')) {
+                                this.animateCounter(element);
+                            }
+                        }
+                    });
+                }, 100);
+                
+                window.addEventListener('scroll', handleScroll);
+                // Initial call to animate elements that are already visible
+                handleScroll();
+            }
         },
 
         setupCounters() {
@@ -517,7 +623,7 @@
         setupLazyLoading() {
             const images = document.querySelectorAll('img[data-lazy]');
             
-            if ('IntersectionObserver' in window) {
+            if (safariCompat.supportsIntersectionObserver()) {
                 const imageObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -531,10 +637,31 @@
                 
                 images.forEach(img => imageObserver.observe(img));
             } else {
-                // Fallback for older browsers
-                images.forEach(img => {
-                    img.src = img.dataset.lazy;
-                });
+                // Fallback for older browsers (Safari < 12.1)
+                const loadVisibleImages = utils.throttle(() => {
+                    const scrollTop = window.pageYOffset;
+                    const viewportHeight = window.innerHeight;
+                    
+                    images.forEach(img => {
+                        if (img.classList.contains('lazy')) {
+                            const rect = img.getBoundingClientRect();
+                            const isVisible = 
+                                rect.top >= -viewportHeight && 
+                                rect.bottom <= viewportHeight * 2;
+                                
+                            if (isVisible) {
+                                img.src = img.dataset.lazy;
+                                img.classList.remove('lazy');
+                            }
+                        }
+                    });
+                }, 200);
+                
+                window.addEventListener('scroll', loadVisibleImages);
+                window.addEventListener('resize', loadVisibleImages);
+                window.addEventListener('orientationchange', loadVisibleImages);
+                // Initial call to load images that are already visible
+                loadVisibleImages();
             }
         },
 
@@ -658,17 +785,37 @@
         },
 
         setupPerformanceTracking() {
+            // Check for PerformanceObserver support (Safari 12.1+)
             if ('PerformanceObserver' in window) {
-                const observer = new PerformanceObserver((list) => {
-                    const entries = list.getEntries();
-                    entries.forEach(entry => {
-                        if (entry.entryType === 'navigation') {
-                            console.log('Page load time:', entry.loadEventEnd - entry.loadEventStart);
-                        }
+                try {
+                    // Try-catch for Safari compatibility issues
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        entries.forEach(entry => {
+                            if (entry.entryType === 'navigation') {
+                                console.log('Page load time:', entry.loadEventEnd - entry.loadEventStart);
+                            }
+                        });
                     });
+                    
+                    // Check for supported entry types (varies by browser)
+                    const supportedEntryTypes = PerformanceObserver.supportedEntryTypes || ['navigation', 'paint'];
+                    observer.observe({ entryTypes: supportedEntryTypes });
+                } catch (e) {
+                    // Fallback for older Safari versions
+                    console.log('Performance tracking not fully supported in this browser');
+                }
+            } else {
+                // Fallback for browsers without PerformanceObserver
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        if (window.performance && window.performance.timing) {
+                            const timing = window.performance.timing;
+                            const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
+                            console.log('Page load time (legacy):', pageLoadTime);
+                        }
+                    }, 0);
                 });
-                
-                observer.observe({ entryTypes: ['navigation', 'paint', 'largest-contentful-paint'] });
             }
         },
 

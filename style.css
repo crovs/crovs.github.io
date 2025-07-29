@@ -1522,6 +1522,54 @@ p {
   }
 }
 
+/* Safari-specific fixes */
+@supports (-webkit-backdrop-filter: blur(20px)) {
+  .nav-bar.scrolled {
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* Ensure proper flexbox support for older Safari */
+.nav-container,
+.nav-links,
+.hero-actions,
+.features-grid,
+.app-actions {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Grid support for older Safari */
+.features-grid {
+  display: -webkit-grid;
+  display: -ms-grid;
+  display: grid;
+}
+
+.app-showcase {
+  display: -webkit-grid;
+  display: -ms-grid;
+  display: grid;
+}
+
+/* Transform support for older Safari */
+.hero-particles,
+.hero-animated-gradient,
+.hero-vanta {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling for Safari */
+html {
+  -webkit-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .hero-animated-gradient {
