@@ -34,6 +34,55 @@
         }
     };
 
+    // Theme management
+    const themeManager = {
+        init() {
+            this.setupThemeToggle();
+            this.loadSavedTheme();
+        },
+
+        setupThemeToggle() {
+            const themeToggle = document.querySelector('[data-theme-toggle]');
+            const themeIcon = document.querySelector('.theme-icon');
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    this.toggleTheme();
+                });
+            }
+        },
+
+        toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-icon');
+            const isDarkMode = body.classList.contains('dark-mode');
+            
+            if (isDarkMode) {
+                body.classList.remove('dark-mode');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-mode');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        },
+
+        loadSavedTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.querySelector('.theme-icon');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-mode');
+                if (themeIcon) themeIcon.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                if (themeIcon) themeIcon.textContent = '🌙';
+            }
+        }
+    };
+
     // Navigation functionality
     const navigation = {
         init() {
@@ -494,6 +543,7 @@
 
     const initializeApp = () => {
         // Initialize all modules
+        themeManager.init();
         navigation.init();
         parallax.init();
         animations.init();

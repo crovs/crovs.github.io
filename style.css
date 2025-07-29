@@ -27,6 +27,12 @@
   --system-white: #FFFFFF;
   --system-black: #000000;
   
+  /* Background Colors */
+  --background-primary: #FFFFFF;
+  --background-secondary: #F2F2F7;
+  --background-tertiary: rgba(255, 255, 255, 0.8);
+  --border-primary: rgba(0, 0, 0, 0.05);
+  
   /* Semantic Colors */
   --label-primary: rgba(0, 0, 0, 0.85);
   --label-secondary: rgba(0, 0, 0, 0.65);
@@ -91,6 +97,12 @@
     --system-gray4: #3A3A3C;
     --system-gray5: #2C2C2E;
     --system-gray6: #1C1C1E;
+    
+    /* Dark mode backgrounds */
+    --background-primary: #000000;
+    --background-secondary: #1C1C1E;
+    --background-tertiary: rgba(28, 28, 30, 0.8);
+    --border-primary: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -99,7 +111,7 @@ body {
   font-family: var(--font-family);
   line-height: 1.6;
   color: var(--label-primary);
-  background: var(--system-white);
+  background: var(--background-primary);
   font-size: 17px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -137,10 +149,10 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--background-tertiary);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--border-primary);
   -webkit-transition: all var(--transition-normal);
 transition: all var(--transition-normal);
 }
@@ -229,6 +241,56 @@ transition: all var(--transition-normal);
   height: 2px;
   background: var(--label-primary);
   transition: all var(--transition-fast);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--spacing-md);
+}
+
+.theme-toggle:hover {
+  background: var(--fill-primary);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+  transition: transform var(--transition-fast);
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: scale(1.1);
+}
+
+/* Dark mode class for manual toggle */
+.dark-mode {
+  --label-primary: rgba(255, 255, 255, 0.85);
+  --label-secondary: rgba(255, 255, 255, 0.65);
+  --label-tertiary: rgba(255, 255, 255, 0.45);
+  --label-quaternary: rgba(255, 255, 255, 0.25);
+  
+  --fill-primary: rgba(255, 255, 255, 0.05);
+  --fill-secondary: rgba(255, 255, 255, 0.02);
+  --fill-tertiary: rgba(255, 255, 255, 0.01);
+  
+  --system-gray: #8E8E93;
+  --system-gray2: #636366;
+  --system-gray3: #48484A;
+  --system-gray4: #3A3A3C;
+  --system-gray5: #2C2C2E;
+  --system-gray6: #1C1C1E;
+  
+  --background-primary: #000000;
+  --background-secondary: #1C1C1E;
+  --background-tertiary: rgba(28, 28, 30, 0.8);
+  --border-primary: rgba(255, 255, 255, 0.05);
 }
 
 /* Hero Section */
@@ -535,7 +597,7 @@ background: linear-gradient(135deg,
 /* Features Section */
 .features {
   padding: var(--spacing-6xl) 0;
-  background: var(--fill-secondary);
+  background: var(--background-secondary);
 }
 
 .section-header {
@@ -571,7 +633,7 @@ background: linear-gradient(135deg,
 }
 
 .feature-card {
-  background: var(--system-white);
+  background: var(--background-primary);
   padding: var(--spacing-3xl);
   border-radius: var(--radius-xl);
   text-align: center;
@@ -636,7 +698,7 @@ background: linear-gradient(135deg,
 /* Apps Section */
 .apps {
   padding: var(--spacing-6xl) 0;
-  background: var(--system-white);
+  background: var(--background-primary);
 }
 
 .apps-grid {
@@ -662,7 +724,7 @@ background: linear-gradient(135deg,
   align-items: center;
   margin-bottom: var(--spacing-6xl);
   padding: var(--spacing-4xl);
-  background: var(--system-white);
+  background: var(--background-primary);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-normal);
@@ -680,7 +742,7 @@ background: linear-gradient(135deg,
 }
 
 .app-showcase:hover {
-  background: var(--fill-secondary);
+  background: var(--background-secondary);
   transform: translateY(-2px);
 }
 
@@ -1199,7 +1261,17 @@ background: linear-gradient(135deg,
 
 @media (max-width: 768px) {
   .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .nav-link:not(.theme-toggle) {
     display: none;
+  }
+  
+  .theme-toggle {
+    margin-left: 0;
   }
   
   .nav-toggle {
