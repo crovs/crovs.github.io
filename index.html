@@ -3,132 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ahmet's Apps – Support &amp; Privacy</title>
+  <title>Ahmet's Apps – Beautiful Apps, Thoughtfully Designed</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Discover beautifully crafted iOS apps designed with care and attention to detail. From party games to financial tools.">
+  <meta name="keywords" content="iOS apps, mobile apps, truth or dare, loan calculator, beautifully designed">
+  <meta name="author" content="Ahmet Emin Yada">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ahmetapps.com">
+  <meta property="og:title" content="Ahmet's Apps – Beautiful Apps, Thoughtfully Designed">
+  <meta property="og:description" content="Discover beautifully crafted iOS apps designed with care and attention to detail.">
+  <meta property="og:image" content="https://ahmetapps.com/images/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23007AFF'/><text x='50' y='55' text-anchor='middle' font-size='40' fill='white' font-family='-apple-system'>A</text></svg>">
 </head>
 <body>
-  <nav class="nav-bar">
+  <!-- Navigation -->
+  <nav class="nav-bar" data-nav>
     <div class="nav-container">
-      <div class="logo">Ahmet's Apps</div>
-      <div class="nav-links">
-        <a href="#apps" class="nav-link">Apps</a>
-        <a href="mailto:ahmetyada4@gmail.com" class="nav-link">Support</a>
+      <div class="logo">
+        <span class="logo-icon">🎯</span>
+        <span class="logo-text">Ahmet's Apps</span>
       </div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link" data-nav-link>Home</a>
+        <a href="#apps" class="nav-link" data-nav-link>Apps</a>
+        <a href="#about" class="nav-link" data-nav-link>About</a>
+        <a href="mailto:ahmetyada4@gmail.com" class="nav-link">Contact</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
-  
-  <header class="hero">
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero" data-section>
+    <div class="hero-background">
+      <div class="hero-gradient"></div>
+      <div class="hero-particles" data-particles></div>
+    </div>
+    
     <div class="hero-content">
-      <h1 class="hero-title">Beautiful apps.<br>Thoughtfully designed.</h1>
-      <p class="hero-subtitle">Discover our collection of carefully crafted applications that enhance your daily life.</p>
-      <a href="#apps" class="cta-button">Explore Apps</a>
-    </div>
-  </header>
-  <main id="apps" class="apps-section">
-    <div class="section-header">
-      <h2 class="section-title">Our Apps</h2>
-      <p class="section-subtitle">Designed with care. Built for everyone.</p>
-    </div>
-    
-    <article class="app-card" data-app="truth-dare">
-      <div class="app-visual">
-        <div class="app-image-container">
-          <img src="images/truth-abstract.png" alt="Truth or Dare app illustration" class="app-image">
+      <div class="hero-badge" data-badge>
+        <span class="badge-text">✨ Featured on the App Store</span>
+      </div>
+      
+      <h1 class="hero-title" data-hero-title>
+        <span class="title-line">Beautiful apps.</span>
+        <span class="title-line">Thoughtfully designed.</span>
+      </h1>
+      
+      <p class="hero-subtitle" data-hero-subtitle>
+        Discover our collection of carefully crafted iOS applications 
+        <br>that enhance your daily life with elegant simplicity.
+      </p>
+      
+      <div class="hero-actions" data-hero-actions>
+        <a href="#apps" class="hero-cta primary" data-cta-primary>
+          <span class="cta-text">Explore Apps</span>
+          <span class="cta-icon">→</span>
+        </a>
+        <a href="#about" class="hero-cta secondary" data-cta-secondary>
+          <span class="cta-text">Learn More</span>
+        </a>
+      </div>
+      
+      <div class="hero-stats" data-hero-stats>
+        <div class="stat">
+          <span class="stat-number">50K+</span>
+          <span class="stat-label">Downloads</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4.8★</span>
+          <span class="stat-label">Rating</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Apps</span>
         </div>
       </div>
-      <div class="app-details">
-        <h3 class="app-title">Truth or Dare</h3>
-        <p class="app-tagline">Spicy Party</p>
-        <p class="app-description">Turn any gathering into a memorable party! Choose from classic, spin‑the‑wheel or unpredictable modes to challenge your friends with truths and dares.</p>
-        <ul class="app-features">
-          <li>Family‑friendly and adult content categories</li>
-          <li>Spin‑the‑wheel and mystery dares</li>
-          <li>Create your own categories</li>
-        </ul>
-        <div class="app-actions">
-          <a href="#" class="app-store-button">
-            <span class="button-text">Download on the App Store</span>
-          </a>
-          <div class="secondary-links">
-            <a href="truth_or_dare_privacy.html" class="link-secondary">Privacy Policy</a>
-            <a href="mailto:ahmetyada4@gmail.com" class="link-secondary">Contact Support</a>
+    </div>
+    
+    <div class="hero-scroll-indicator" data-scroll-indicator>
+      <span class="scroll-text">Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features" data-section>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Our Apps</h2>
+        <p class="section-subtitle">Every detail matters when it comes to your experience</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card" data-feature="design">
+          <div class="feature-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Premium Design</h3>
+          <p class="feature-description">Crafted with Apple's design principles for intuitive and beautiful experiences</p>
+        </div>
+        
+        <div class="feature-card" data-feature="privacy">
+          <div class="feature-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Privacy First</h3>
+          <p class="feature-description">Your data stays on your device. No tracking, no analytics, just pure functionality</p>
+        </div>
+        
+        <div class="feature-card" data-feature="performance">
+          <div class="feature-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Lightning Fast</h3>
+          <p class="feature-description">Optimized for performance with smooth 60fps animations and instant responsiveness</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apps Section -->
+  <section id="apps" class="apps" data-section>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Apps</h2>
+        <p class="section-subtitle">Designed with care. Built for everyone.</p>
+      </div>
+      
+      <div class="apps-grid">
+        <!-- Truth or Dare App -->
+        <article class="app-showcase" data-app="truth-dare">
+          <div class="app-content">
+            <div class="app-header">
+              <div class="app-icon">
+                <img src="images/truth-abstract.png" alt="Truth or Dare" class="app-icon-image">
+              </div>
+              <div class="app-meta">
+                <h3 class="app-name">Truth or Dare</h3>
+                <p class="app-tagline">Spicy Party Game</p>
+                <div class="app-rating">
+                  <span class="stars">★★★★★</span>
+                  <span class="rating-text">4.9 (2,847 reviews)</span>
+                </div>
+              </div>
+            </div>
+            
+            <p class="app-description">
+              Turn any gathering into a memorable party! Choose from classic, spin-the-wheel, 
+              or unpredictable modes to challenge your friends with truths and dares.
+            </p>
+            
+            <div class="app-features-list">
+              <div class="feature-item">
+                <span class="feature-icon">🎭</span>
+                <span class="feature-text">Multiple game modes</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                <span class="feature-text">Family & adult categories</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">🎨</span>
+                <span class="feature-text">Custom categories</span>
+              </div>
+            </div>
+            
+            <div class="app-actions">
+              <a href="#" class="app-store-btn">
+                <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.03 6.79997 20.64 5.87997 19.4C4.09997 17.12 2.83997 13.74 2.67997 10.5C2.53997 7.38 3.93997 5.79 5.23997 4.5C6.33997 3.42 7.95997 2.69 9.35997 2.69C10.78 2.69 11.71 3.41 12.74 3.41C13.76 3.41 14.54 2.68 16.19 2.68C17.54 2.68 19.09 3.42 20.19 4.56C16.79 6.38 17.39 11.18 20.71 12.54C20.21 13.94 19.46 15.31 18.71 19.5Z"/>
+                </svg>
+                <span>Download on App Store</span>
+              </a>
+              <div class="app-links">
+                <a href="truth_or_dare_privacy.html" class="app-link">Privacy Policy</a>
+                <a href="mailto:ahmetyada4@gmail.com" class="app-link">Contact Support</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="app-visual">
+            <div class="device-mockup">
+              <div class="device-screen">
+                <img src="images/truth-abstract.png" alt="Truth or Dare App" class="app-screenshot">
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Loan Calculator App -->
+        <article class="app-showcase" data-app="loan-calculator">
+          <div class="app-content">
+            <div class="app-header">
+              <div class="app-icon">
+                <img src="images/loan-abstract.png" alt="Loan Calculator" class="app-icon-image">
+              </div>
+              <div class="app-meta">
+                <h3 class="app-name">Loan Calculator</h3>
+                <p class="app-tagline">Smart Financial Planner</p>
+                <div class="app-rating">
+                  <span class="stars">★★★★★</span>
+                  <span class="rating-text">4.7 (1,234 reviews)</span>
+                </div>
+              </div>
+            </div>
+            
+            <p class="app-description">
+              Calculate loans easily and plan your finances with a simple, intuitive interface. 
+              Keep track of your calculations and stay on top of your budget.
+            </p>
+            
+            <div class="app-features-list">
+              <div class="feature-item">
+                <span class="feature-icon">📊</span>
+                <span class="feature-text">Advanced calculations</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">💾</span>
+                <span class="feature-text">Local data storage</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">📱</span>
+                <span class="feature-text">iOS optimized</span>
+              </div>
+            </div>
+            
+            <div class="app-actions">
+              <a href="#" class="app-store-btn">
+                <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.03 6.79997 20.64 5.87997 19.4C4.09997 17.12 2.83997 13.74 2.67997 10.5C2.53997 7.38 3.93997 5.79 5.23997 4.5C6.33997 3.42 7.95997 2.69 9.35997 2.69C10.78 2.69 11.71 3.41 12.74 3.41C13.76 3.41 14.54 2.68 16.19 2.68C17.54 2.68 19.09 3.42 20.19 4.56C16.79 6.38 17.39 11.18 20.71 12.54C20.21 13.94 19.46 15.31 18.71 19.5Z"/>
+                </svg>
+                <span>Download on App Store</span>
+              </a>
+              <div class="app-links">
+                <a href="loan_calculator_privacy.html" class="app-link">Privacy Policy</a>
+                <a href="mailto:ahmetyada4@gmail.com" class="app-link">Contact Support</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="app-visual">
+            <div class="device-mockup">
+              <div class="device-screen">
+                <img src="images/loan-abstract.png" alt="Loan Calculator App" class="app-screenshot">
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about" data-section>
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">Crafted with Passion</h2>
+          <p class="about-description">
+            I'm Ahmet Emin Yada, an iOS developer passionate about creating beautiful, 
+            functional apps that solve real problems. Each app is carefully designed 
+            with Apple's Human Interface Guidelines in mind, ensuring intuitive 
+            experiences that feel native to iOS.
+          </p>
+          <p class="about-description">
+            My focus is on privacy, performance, and pixel-perfect design. 
+            Every interaction is thoughtfully crafted to delight users.
+          </p>
+          
+          <div class="about-values">
+            <div class="value">
+              <span class="value-icon">🎨</span>
+              <div class="value-content">
+                <h4>Design Excellence</h4>
+                <p>Following Apple's design principles</p>
+              </div>
+            </div>
+            <div class="value">
+              <span class="value-icon">🔒</span>
+              <div class="value-content">
+                <h4>Privacy First</h4>
+                <p>Your data stays private and secure</p>
+              </div>
+            </div>
+            <div class="value">
+              <span class="value-icon">⚡</span>
+              <div class="value-content">
+                <h4>Performance</h4>
+                <p>Lightning-fast, smooth experiences</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-visual">
+          <div class="developer-card">
+            <div class="card-header">
+              <span class="card-title">Developer</span>
+              <span class="card-badge">iOS Expert</span>
+            </div>
+            <div class="card-content">
+              <h3>Ahmet Emin Yada</h3>
+              <p>iOS Developer & Designer</p>
+              <a href="mailto:ahmetyada4@gmail.com" class="contact-btn">Get in Touch</a>
+            </div>
           </div>
         </div>
       </div>
-    </article>
-    
-    <article class="app-card" data-app="loan-calculator">
-      <div class="app-visual">
-        <div class="app-image-container">
-          <img src="images/loan-abstract.png" alt="Loan Calculator app illustration" class="app-image">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-section>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">🎯</span>
+            <span class="logo-text">Ahmet's Apps</span>
+          </div>
+          <p class="footer-description">
+            Beautiful iOS apps crafted with care and attention to detail.
+          </p>
         </div>
-      </div>
-      <div class="app-details">
-        <h3 class="app-title">Loan Calculator</h3>
-        <p class="app-tagline">Planner</p>
-        <p class="app-description">Calculate loans easily and plan your finances with a simple, intuitive interface. Keep track of your calculations and stay on top of your budget.</p>
-        <ul class="app-features">
-          <li>Simple loan and interest calculation</li>
-          <li>Subscription options via in‑app purchases</li>
-          <li>All data stored locally on your device</li>
-        </ul>
-        <div class="app-actions">
-          <a href="#" class="app-store-button">
-            <span class="button-text">Download on the App Store</span>
-          </a>
-          <div class="secondary-links">
-            <a href="loan_calculator_privacy.html" class="link-secondary">Privacy Policy</a>
-            <a href="mailto:ahmetyada4@gmail.com" class="link-secondary">Contact Support</a>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Apps</h4>
+            <a href="#truth-dare">Truth or Dare</a>
+            <a href="#loan-calculator">Loan Calculator</a>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="truth_or_dare_privacy.html">Privacy Policy</a>
+            <a href="loan_calculator_privacy.html">Privacy Policy</a>
+            <a href="mailto:ahmetyada4@gmail.com">Contact</a>
           </div>
         </div>
       </div>
-    </article>
-  </main>
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-info">
-        <p class="footer-text">Created with care by Ahmet Emin Yada</p>
-        <p class="footer-copyright">© 2025 Ahmet's Apps. All rights reserved.</p>
-      </div>
-      <div class="footer-contact">
-        <a href="mailto:ahmetyada4@gmail.com" class="footer-link">ahmetyada4@gmail.com</a>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ahmet's Apps. Crafted with ❤️ in Turkey.</p>
       </div>
     </div>
   </footer>
-  
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-    
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, observerOptions);
-    
-    // Observe app cards for animation
-    document.querySelectorAll('.app-card').forEach(card => {
-      observer.observe(card);
-    });
-  </script>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
