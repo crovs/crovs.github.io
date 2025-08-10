@@ -823,8 +823,8 @@ body[data-bg-mode="vanta"] .stat-number {
 }
 
 .feature-card:hover {
-  -webkit-transform: translateY(-2px);
-  transform: translateY(-2px);
+  -webkit-transform: none;
+  transform: none;
   box-shadow: var(--shadow-lg);
 }
 
@@ -898,7 +898,7 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-showcase:hover {
   background: var(--background-secondary);
-  transform: translateY(-0.5px);
+  transform: none;
 }
 
 .app-content {
@@ -1035,7 +1035,7 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-store-btn:hover {
   background: #1a1a1a;
-  transform: translateY(-0.25px);
+  transform: none;
   box-shadow: var(--shadow-lg);
 }
 
@@ -1079,7 +1079,7 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-store-btn.omi-btn:hover {
   background: linear-gradient(135deg, #FF5252, #26A69A, #2196F3);
-  transform: translateY(-1px);
+  transform: none;
   box-shadow: var(--shadow-lg);
 }
 
@@ -1091,8 +1091,8 @@ body[data-bg-mode="vanta"] .stat-number {
 }
 
 .app-showcase[data-app="omi"]:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  transform: none;
+  box-shadow: var(--shadow-md);
 }
 
 .app-showcase[data-app="omi"]::before {
@@ -1210,8 +1210,8 @@ body[data-bg-mode="vanta"] .stat-number {
 }
 
 .app-showcase:hover .device-mockup {
-  -webkit-transform: perspective(1000px) rotateY(-0.2deg) rotateX(0.1deg) scale(1.002);
-  transform: perspective(1000px) rotateY(-0.2deg) rotateX(0.1deg) scale(1.002);
+  -webkit-transform: perspective(1000px) rotateY(-1deg) rotateX(0.5deg);
+  transform: perspective(1000px) rotateY(-1deg) rotateX(0.5deg);
 }
 
 .device-screen {
