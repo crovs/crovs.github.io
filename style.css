@@ -254,6 +254,44 @@ p {
   transform: scale(1.1);
 }
 
+/* Omi Navigation Styling */
+.nav-link.omi-link {
+  position: relative;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FECA57);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: omiGradient 3s ease infinite;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+@keyframes omiGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.nav-link.omi-link:hover {
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FECA57);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateY(-1px);
+}
+
+.nav-link.omi-link::after {
+  background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+}
+
+.nav-link.omi-link:hover::after {
+  width: 100%;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -1021,6 +1059,60 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-link:hover {
   color: #0056D3;
+}
+
+/* Omi App Special Styling */
+.app-store-btn.omi-btn {
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1);
+  background-size: 200% 200%;
+  animation: omiButtonGradient 4s ease infinite;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes omiButtonGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app-store-btn.omi-btn:hover {
+  background: linear-gradient(135deg, #FF5252, #26A69A, #2196F3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3), 0 4px 10px rgba(78, 205, 196, 0.2);
+}
+
+.app-showcase[data-app="omi"] {
+  border-left: 4px solid transparent;
+  border-image: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1) 1;
+  position: relative;
+}
+
+.app-showcase[data-app="omi"]::before {
+  content: 'NEW';
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: newBadgePulse 2s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes newBadgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.app-tagline:contains("New App") {
+  color: #FF6B6B;
+  font-weight: 600;
 }
 
 .app-visual {
