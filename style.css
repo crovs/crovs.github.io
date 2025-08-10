@@ -1044,6 +1044,16 @@ body[data-bg-mode="vanta"] .stat-number {
   height: 20px;
 }
 
+.app-store-badge {
+  width: auto;
+  height: 40px;
+  transition: opacity var(--transition-normal);
+}
+
+.app-store-badge:hover {
+  opacity: 0.8;
+}
+
 .app-links {
   display: flex;
   gap: var(--spacing-lg);
