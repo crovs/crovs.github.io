@@ -1079,14 +1079,20 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-store-btn.omi-btn:hover {
   background: linear-gradient(135deg, #FF5252, #26A69A, #2196F3);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3), 0 4px 10px rgba(78, 205, 196, 0.2);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
 }
 
 .app-showcase[data-app="omi"] {
   border-left: 4px solid transparent;
   border-image: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1) 1;
   position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.app-showcase[data-app="omi"]:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
 }
 
 .app-showcase[data-app="omi"]::before {
@@ -1101,13 +1107,7 @@ body[data-bg-mode="vanta"] .stat-number {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
-  animation: newBadgePulse 2s ease-in-out infinite;
   z-index: 10;
-}
-
-@keyframes newBadgePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
 }
 
 .app-tagline:contains("New App") {
