@@ -1046,7 +1046,7 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-store-badge {
   width: auto;
-  height: 40px;
+  height: 60px;
   transition: opacity var(--transition-normal);
 }
 
@@ -1054,38 +1054,26 @@ body[data-bg-mode="vanta"] .stat-number {
   opacity: 0.8;
 }
 
+.app-store-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Light mode - white badges on dark background */
 .app-store-badge {
-  width: auto;
-  height: 50px;
-  transition: opacity var(--transition-normal);
+  content: url('images/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg');
 }
 
-.app-store-badge-light {
-  display: none;
-}
-
-.app-store-badge-dark {
-  display: block;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .app-store-badge-light {
-    display: block;
-  }
-  
-  .app-store-badge-dark {
-    display: none;
+/* Dark mode - black badges on light background */
+@media (prefers-color-scheme: light) {
+  .app-store-badge {
+    content: url('images/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg');
   }
 }
 
-/* Manual dark mode class */
-.dark-mode .app-store-badge-light {
-  display: block;
-}
-
-.dark-mode .app-store-badge-dark {
-  display: none;
+/* Manual dark mode override */
+.dark-mode .app-store-badge {
+  content: url('images/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg');
 }
 
 .app-links {
