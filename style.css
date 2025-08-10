@@ -1054,6 +1054,40 @@ body[data-bg-mode="vanta"] .stat-number {
   opacity: 0.8;
 }
 
+.app-store-badge {
+  width: auto;
+  height: 50px;
+  transition: opacity var(--transition-normal);
+}
+
+.app-store-badge-light {
+  display: none;
+}
+
+.app-store-badge-dark {
+  display: block;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .app-store-badge-light {
+    display: block;
+  }
+  
+  .app-store-badge-dark {
+    display: none;
+  }
+}
+
+/* Manual dark mode class */
+.dark-mode .app-store-badge-light {
+  display: block;
+}
+
+.dark-mode .app-store-badge-dark {
+  display: none;
+}
+
 .app-links {
   display: flex;
   gap: var(--spacing-lg);
