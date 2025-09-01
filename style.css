@@ -254,8 +254,8 @@ p {
   transform: scale(1.1);
 }
 
-/* Omi Navigation Styling */
-.nav-link.omi-link {
+/* Startup Navigation Styling */
+.nav-link.startup-link {
   position: relative;
   font-weight: 700;
   background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FECA57);
@@ -263,19 +263,19 @@ p {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: omiGradient 3s ease infinite;
+  animation: startupGradient 3s ease infinite;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   transition: all var(--transition-normal);
 }
 
-@keyframes omiGradient {
+@keyframes startupGradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.nav-link.omi-link:hover {
+.nav-link.startup-link:hover {
   background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FECA57);
   background-size: 300% 300%;
   -webkit-background-clip: text;
@@ -284,11 +284,11 @@ p {
   transform: translateY(-1px);
 }
 
-.nav-link.omi-link::after {
+.nav-link.startup-link::after {
   background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
 }
 
-.nav-link.omi-link:hover::after {
+.nav-link.startup-link:hover::after {
   width: 100%;
 }
 
@@ -1093,41 +1093,41 @@ body[data-bg-mode="vanta"] .stat-number {
   color: #0056D3;
 }
 
-/* Omi App Special Styling */
-.app-store-btn.omi-btn {
+/* Startup App Special Styling */
+.app-store-btn.startup-btn {
   background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1);
   background-size: 200% 200%;
-  animation: omiButtonGradient 4s ease infinite;
+  animation: startupButtonGradient 4s ease infinite;
   border: none;
   position: relative;
   overflow: hidden;
 }
 
-@keyframes omiButtonGradient {
+@keyframes startupButtonGradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.app-store-btn.omi-btn:hover {
+.app-store-btn.startup-btn:hover {
   background: linear-gradient(135deg, #FF5252, #26A69A, #2196F3);
   transform: none;
   box-shadow: var(--shadow-lg);
 }
 
-.app-showcase[data-app="omi"] {
+.app-showcase[data-app="daily-startup-ideas"] {
   border-left: 4px solid transparent;
   border-image: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1) 1;
   position: relative;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.app-showcase[data-app="omi"]:hover {
+.app-showcase[data-app="daily-startup-ideas"]:hover {
   transform: none;
   box-shadow: var(--shadow-md);
 }
 
-.app-showcase[data-app="omi"]::before {
+.app-showcase[data-app="daily-startup-ideas"]::before {
   content: 'NEW';
   position: absolute;
   top: -10px;

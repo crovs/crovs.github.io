@@ -1,0 +1,92 @@
+Daily Startup Ideas — Privacy Policy
+Effective Date: [YYYY-MM-DD]
+
+This Privacy Policy explains how Daily Startup Ideas (the “App”) collects, uses, discloses, and protects your information. Please read it carefully. By using the App, you agree to the practices described here.
+
+1) Who We Are
+- Controller: Ahmet Emin Yada
+- Contact: ahmetyada4@gmail.com 
+- App Scope: A minimal iOS app that delivers one personalized business idea per day, with optional Pro features.
+
+2) Information We Collect
+A) Information you provide
+- Persona preferences: industries of interest, budget range, and time availability (used to bias daily ideas).
+- Saved items: ideas you save locally on your device (Pro feature).
+- Purchase intent and paywall interactions (non-sensitive selections and UI events).
+- Support communications if you contact us.
+
+B) Information collected automatically
+- Device and app metadata: app version, build number, OS version, country/locale, language, timestamps, and generic device model.
+- Event telemetry: pseudonymous app usage events (e.g., idea viewed/saved/shared; onboarding completed; paywall shown/selected) to improve reliability and user experience.
+- Push notification token and delivery status.
+
+C) Information from third parties
+- In‑app purchase and subscription status from Apple and our purchase processor (RevenueCat) to enable Pro features.
+- Analytics events processed by TelemetryDeck (privacy‑respecting pseudonymous analytics).
+- Push delivery and segmentation via OneSignal (using a pseudonymous external user ID and push token).
+
+3) How We Use Your Information
+- Deliver the daily business idea and personalize it to your stated preferences.
+- Provide app functionality: notifications, widgets, saving/sharing/exporting, and Pro features.
+- Maintain reliability and performance, prevent abuse, and diagnose problems.
+- Process subscriptions, verify entitlements, and manage paywall experiences.
+- Measure app usage (non‑sensitive analytics) to improve product quality and retention.
+- Comply with legal obligations and enforce our terms.
+
+4) AI Content Generation
+- The backend may use third‑party AI providers to generate idea content based on de‑identified persona preferences and category tags. We do not send your name, email, or precise identifiers for idea generation. Where available, we configure providers to minimize data retention and restrict use of prompts/responses for model training. We do not control third‑party providers’ internal policies; see their privacy notices for more details.
+
+5) Data Storage and Processing
+- On‑device data: Persona preferences and saved ideas are stored locally on your device. Removing the App deletes this local data. Backups depend on your device/iCloud settings.
+- Backend infrastructure: Our server runs on Cloudflare Workers with Cloudflare D1 (database) and KV (cache/config). Requests for daily ideas may include your persona preferences so we can fetch or generate an appropriate idea. We store the ideas and limited request context necessary to operate the service and combat abuse. We avoid storing information in a form that directly identifies you (no account or profile with name/email).
+- Notifications: OneSignal processes your push token and pseudonymous tags (e.g., categories of interest, free/pro status) to deliver notifications and measure delivery.
+- Purchases: RevenueCat processes your purchase receipts and a pseudonymous user identifier to verify entitlements and manage subscriptions.
+- Analytics: TelemetryDeck processes pseudonymous event telemetry (e.g., app version, feature usage). We do not collect precise location, contacts, photos, microphone, or address book data.
+
+6) Legal Bases (where applicable)
+- Contractual necessity: Delivering the daily idea, Pro features, and core functionality.
+- Legitimate interests: Ensuring reliability, security, and product analytics that respect user privacy.
+- Consent: Push notifications (requested by the system prompt), and any region‑specific consents required by law.
+- Legal obligation: Compliance with applicable laws, tax/transaction records.
+
+7) Sharing and Disclosure
+We do not sell your personal information. We share data only with:
+- Service providers (processors): Cloudflare (hosting, database, cache), OneSignal (push), RevenueCat (IAP), TelemetryDeck (analytics), and AI generation providers, each bound by contracts to process data on our behalf.
+- Legal and safety: When required by law, regulation, or to protect the rights, safety, and integrity of our users and services.
+- Business transfers: In case of merger, acquisition, or asset sale, your information may be transferred as permitted by law, subject to the same protections.
+
+8) Data Retention
+- On‑device data (persona and saved ideas): retained until you delete it or remove the App.
+- Server‑side operational data: retained only as long as necessary to provide services, ensure reliability, prevent abuse, and meet legal obligations. Aggregated analytics may be retained longer without identifying data.
+- Push and purchase records: retained as required by platform providers and to manage entitlements, chargebacks, and fraud prevention.
+
+9) Your Rights and Choices
+- Access, correction, deletion: Contact us to request a copy, correction, or deletion of your personal information. Some data is pseudonymous or aggregated and may not be reasonably linkable to you.
+- Notifications: You can disable push notifications at any time in iOS Settings.
+- Data portability and objection: Where applicable, you may request export or object to certain processing.
+- Do Not Track/Ad tracking: The App does not use advertising identifiers or cross‑app tracking.
+
+10) International Data Transfers
+- Our service providers may process data on servers located in multiple countries. We use commercially reasonable safeguards, including standard contractual clauses where required, to protect your information during transfers.
+
+11) Security
+- We use administrative, technical, and organizational measures to protect information, including encrypted transport (HTTPS), access controls, environment‑level secret management, and least‑privilege practices. No method of transmission or storage is 100% secure.
+
+12) Children’s Privacy
+- The App is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe a child provided information, contact us and we will delete it.
+
+13) Third‑Party Services
+- Apple (In‑App Purchases), RevenueCat (subscriptions), OneSignal (notifications), TelemetryDeck (analytics), Cloudflare (hosting/database/cache), and AI content providers operate under their own privacy policies. We encourage you to review them.
+
+14) Changes to This Policy
+- We may update this Policy from time to time. Continued use of the App after an update constitutes acceptance of the revised Policy. We will update the “Effective Date” and, where required, provide additional notice.
+
+15) Contact Us
+- Email: ahmetyada4@gmail.com
+- Postal: 
+- Data Controller: Ahmet Emin Yada
+
+Notes for Review (remove before publishing):
+- Replace placeholders ahmetyada4@gmail.com, Ahmet Emin Yada, and Effective Date.
+- Verify third‑party lists (OneSignal, RevenueCat, TelemetryDeck, Cloudflare, AI provider) match your production setup.
+- If you add or remove providers, update Sections 5, 7, and 13 accordingly.
