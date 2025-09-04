@@ -898,7 +898,6 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-showcase:hover {
   background: var(--background-secondary);
-  transform: none;
 }
 
 .app-content {
@@ -1035,7 +1034,6 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-store-btn:hover {
   background: #1a1a1a;
-  transform: none;
   box-shadow: var(--shadow-lg);
 }
 
@@ -1050,9 +1048,7 @@ body[data-bg-mode="vanta"] .stat-number {
   transition: opacity var(--transition-normal);
 }
 
-.app-store-badge:hover {
-  opacity: 0.8;
-}
+
 
 .app-store-link {
   display: inline-block;
@@ -1089,9 +1085,7 @@ body[data-bg-mode="vanta"] .stat-number {
   transition: color var(--transition-fast);
 }
 
-.app-link:hover {
-  color: #0056D3;
-}
+
 
 /* Startup App Special Styling */
 .app-store-btn.startup-btn {
@@ -1111,7 +1105,6 @@ body[data-bg-mode="vanta"] .stat-number {
 
 .app-store-btn.startup-btn:hover {
   background: linear-gradient(135deg, #FF5252, #26A69A, #2196F3);
-  transform: none;
   box-shadow: var(--shadow-lg);
 }
 
@@ -1123,7 +1116,6 @@ body[data-bg-mode="vanta"] .stat-number {
 }
 
 .app-showcase[data-app="daily-startup-ideas"]:hover {
-  transform: none;
   box-shadow: var(--shadow-md);
 }
 
@@ -1241,10 +1233,7 @@ body[data-bg-mode="vanta"] .stat-number {
   margin: 0 var(--spacing-xs);
 }
 
-.app-showcase:hover .device-mockup {
-  -webkit-transform: perspective(1000px) rotateY(-1deg) rotateX(0.5deg);
-  transform: perspective(1000px) rotateY(-1deg) rotateX(0.5deg);
-}
+
 
 .device-screen {
   width: 100%;
