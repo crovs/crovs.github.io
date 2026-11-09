@@ -33,7 +33,7 @@
   </header>
   <main class="privacy">
     <h2>Privacy Policy</h2>
-    <p><strong>Last updated:</strong> August&nbsp;1,&nbsp;2025</p>
+    <p><strong>Last updated:</strong> November&nbsp;9,&nbsp;2026</p>
     <p><strong>Effective date:</strong> August&nbsp;1,&nbsp;2025</p>
 
     <h3>1. Introduction</h3>
@@ -58,15 +58,21 @@
     <p><strong>Purpose:</strong> To enable Pokemon card scanning functionality through optical character recognition (OCR).</p>
     <p><strong>Data Processed:</strong> Camera feed and captured images of Pokemon cards.</p>
     <p><strong>Legal Basis:</strong> Your explicit consent for camera access and contract performance.</p>
-    <p><strong>Processing Location:</strong> All image processing occurs locally on your device. No images are transmitted to external servers.</p>
+    <p><strong>Processing Location:</strong> Card recognition (OCR) runs locally on your device. The live camera feed is never uploaded.</p>
     <p><strong>Retention:</strong> Images are processed in real-time and not stored permanently on your device by our App.</p>
+
+    <h4>4.3 Cards the Scanner Could Not Recognize</h4>
+    <p><strong>Purpose:</strong> To improve card recognition. When the scanner cannot identify a card, or you report a wrong match, the App may send a small, cropped image of that card to our own server, together with what the scanner read (for example the card number) and the app version.</p>
+    <p><strong>Data Sent:</strong> Only the cropped card image and scan details. No name, email, contacts or other photos from your library. The image is not linked to your identity.</p>
+    <p><strong>Legal Basis:</strong> Legitimate interests (Article 6(1)(f) of the GDPR) to fix recognition errors.</p>
+    <p><strong>Retention:</strong> Deleted automatically after 30 days.</p>
 
     <h4>4.2 Biometric Data Considerations</h4>
     <p>While our App processes visual data through OCR technology, we do not collect, store, or process biometric data as defined under GDPR Article 9 or CCPA. Our OCR processing focuses solely on text recognition from card imagery and does not involve facial recognition, fingerprint scanning, or other biometric identification methods.</p>
 
     <h3>5. Information We Do Not Collect</h3>
     <p><strong>Personal Identifiers:</strong> We do not collect or store your name, email address, phone number, or any other personally identifiable information beyond what's necessary for subscription management.</p>
-    <p><strong>Usage Analytics:</strong> We do not collect detailed analytics, crash reports, or comprehensive usage logs.</p>
+    <p><strong>Usage Analytics:</strong> We only collect the anonymous usage and crash data described in Section 6. You can turn analytics off in the App's Settings.</p>
     <p><strong>Device Data:</strong> We do not access your device's location, contacts, photo library, or any other personal files beyond camera access for scanning.</p>
     <p><strong>Biometric Data:</strong> We do not collect, process, or store biometric identifiers or biometric information as defined by applicable privacy laws.</p>
 
@@ -99,11 +105,22 @@
     <p><strong>Data Location:</strong> Firebase Analytics is a service provided by Google. Data is processed in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     <p><strong>Opt-Out:</strong> You can opt-out of Firebase Analytics data collection by adjusting the settings within the App. For more information on how to control the data collected by Google, please visit their privacy controls page.</p>
 
+    <h4>6.4 PostHog (Product Analytics and Crash Reports)</h4>
+    <p><strong>Purpose:</strong> To understand which features are used, measure scan success and fix crashes and errors.</p>
+    <p><strong>Data Collected:</strong> App events (for example "scan completed", "card added"), scan results without images, crash and error reports, device model, OS and app version, and a random app-generated identifier. We do not send your name, email or contacts.</p>
+    <p><strong>Legal Basis:</strong> Legitimate interests (Article 6(1)(f) of the GDPR) to improve the App.</p>
+    <p><strong>Data Location:</strong> PostHog processes data in accordance with <a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog's Privacy Policy</a>.</p>
+    <p><strong>Opt-Out:</strong> You can turn analytics off at any time in the App's Settings.</p>
+
+    <h4>6.5 Our Price Server (Cloudflare)</h4>
+    <p><strong>Purpose:</strong> Card prices, card identification and the images described in Section 4.3 are handled by our own server, hosted on Cloudflare Workers.</p>
+    <p><strong>Data Processed:</strong> The card being looked up (name, number, set, language) and, for unrecognized cards, the cropped card image. Cloudflare processes data in accordance with <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a>.</p>
+
     <h3>7. Data Security and Protection</h3>
     <p>We implement appropriate technical and organizational measures to protect your information:</p>
     <ul>
       <li><strong>Encryption:</strong> All data transmissions use industry-standard encryption (TLS/SSL)</li>
-      <li><strong>Local Processing:</strong> Camera and OCR processing occurs entirely on your device</li>
+      <li><strong>Local Processing:</strong> Camera and OCR processing occurs on your device; only cropped images of unrecognized cards are sent (Section 4.3)</li>
       <li><strong>Minimal Data Collection:</strong> We follow data minimization principles, collecting only what's necessary</li>
       <li><strong>Access Controls:</strong> Limited access to any collected data with proper authentication</li>
       <li><strong>Regular Security Reviews:</strong> Ongoing assessment of security measures and practices</li>
@@ -111,6 +128,7 @@
 
     <h3>8. Data Retention</h3>
     <p><strong>Camera Data:</strong> Not retained - processed in real-time and immediately discarded.</p>
+    <p><strong>Unrecognized Card Images:</strong> Deleted automatically after 30 days.</p>
     <p><strong>Subscription Data:</strong> Retained for the duration of your subscription plus 3 years for legal and tax purposes, or as required by law.</p>
     <p><strong>Support Communications:</strong> Retained for 2 years to provide ongoing support.</p>
 
